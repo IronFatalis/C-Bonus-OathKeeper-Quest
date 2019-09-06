@@ -1,0 +1,73 @@
+Oathkeeper Quest
+Game Design Document
+
+1.0 Overview:
+Oathkeeper Quest is a text based fantasy Role Playing Game that encourages problem solving. You are a soldier tasked to slay the monster harassing the town. You begin your journey in the castle speaking to the king who is tasking you on your quest. You are told that you need to find the legendary sword and armour to be able to slay the monster. In order to find the armour you'll need to find the antidote to pass through a poisonous swamp.
+
+1.1 Target Audience:
+The players for this game are children from ages 7 to 15
+They enjoy adventure stories and problem solving
+
+1.2 Genre:
+Oathkeeper Quest is a fantasy adventure role playing game. 
+
+1.3 Visual Style:
+The visual sytle for Oathkeeper Quest is a text based game with a descriptive narrative.
+
+1.4 Platform:
+The game is made specifically for windows.
+
+1.5 Player End-Goals:
+The main golas to work towards are:
+gaining the legendary sword from the forest
+gaining the legendary armour from the swamp, which the antidote, which is found in the mountain town, is needed to gain access to
+slaying the monster in the dark cave with the sword and armour
+
+2.0 Gameplay:
+In the opening dialog, you will be asked to name your character
+In each area you will be able to "Look Around", "Check Equipment", or "Move"
+As the player you will be able to move north, south, west, or east.
+The option "Look Around" will describe the area in more detail and what is in each direction from where the player is.
+"Check Equipment" will list the players inventory, and ask them if an item should be used.
+
+3.0 Game Flow and Progression:
+-The player will be tasked to slay the monster
+-The king gives the player a key to the shrine to unlock hints if the player needs guidence
+-The player is placed into an open world for them to explore
+-The player must make their way to the mountain town to progress and gain an antidote
+-The next location to progress would be the swamp where the character needs to use the antidote to pass through
+-The player will gain armour from deep in the swamp
+-The hint shrine will help guide the player through the forest puzzle
+-Next the player must head to the forest and solve the puzzle to gain the sword
+-Once the sword and shield are gained, the player can go to the cave to slay the monster
+
+4.0 Story:
+Your player is a soldier for the kingdom, who is tasked to slay the monster terriorizing the castle. On your journey you must travel to every corner of the world to find the items needed to defeat the monster.
+
+5.0 User Interface:
+Oathkeeper Quest will constantly show the area the player is in, the list of options the player can take "Look Around, Check Inventory, Move", and a breif description of the surounding area.
+When an option is selected, the game will output the information asked of it. Then either ask for a new input (if "Look Around" or "Check Inventory"), or ask for a key input before clearing the screen and going to the next area (if "Move").
+
+6.0 Technical:
+Oathkeeper Quest will only be able to be played on windows through script execution.
+
+7.0 Logistics:
+
+7.1 Alpha Production Plan (1 week projected)
+
+7.1.1 Planning - 1 day
+- Creating basic game design for game
+- Pitching project
+- Designing map
+
+
+7.1.2 Pre-Production - 1 day
+- Create sudocode for movement/inventory
+- Create sudocode for player class
+- Text script writing for each area and base story
+
+7.1.3 Production - 4 days
+- Create script for player movement and options the player can take in each area
+- Create player class with players name, health and player location
+- Create inventory functions for storing, and adding to players inventory
+
