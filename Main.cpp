@@ -10,7 +10,6 @@ int main()
 {
 	Game PlayGame = Game();
 	PlayGame.Play();
-
 	return 0;
 }
 

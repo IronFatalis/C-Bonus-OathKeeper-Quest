@@ -17,7 +17,6 @@ public:
 	string playerName;
 	string option;
 	string direction;
-	int location;
 	bool able = false;
 	bool correct = false;
 	bool game = true;
