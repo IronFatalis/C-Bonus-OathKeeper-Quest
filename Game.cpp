@@ -1,14 +1,14 @@
 #include "Game.h"
 #include "Player.h"
 #include "Inventory.h"
-#include "Area.h"
+#include "Location.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 Player Player1 = Player();
 Inventory Inventory1= Inventory();
-Area Area1 = Area();
+Location Location1 = Location();
 
 
 void Game::Intro()
@@ -44,13 +44,13 @@ void Game::Intro()
 	cout << "You head out to the Castle Town to start your adventure." << endl;
 	system("pause");
 	system("CLS");
-	location = 12;
+	Location1.location = 12;
 }
 
 void Game::Menu()
 {
 
-	Player1.Location(location);
+	Player1.Location(Location1.location);
 	cout << endl << endl;
 	Player1.Name(playerName);
 	cout << "'s Health : ";
@@ -75,7 +75,7 @@ void Game::Choices()
 		cout << endl;
 		if (option == "1")
 		{
-			Area1.LookAround();
+			Location1.LookAround();
 			correct = true;
 			system("pause");
 			system("CLS");
@@ -93,18 +93,18 @@ void Game::Choices()
 				}
 				if (direction == "NORTH")
 				{
-					Area1.WalkNorth();
+					Location1.WalkNorth();
 				}
 				else if (direction == "SOUTH")
 				{
-					Area1.WalkSouth();
-					if (location == 16)
+					Location1.WalkSouth();
+					if (Location1.location == 16)
 					{
 						if (resistance == true)
 						{
 							cout << "You are able to pass into the poisonous swamp unharmed because of the antidote you drank." << endl;
-							location = location + 5;
-							able = true;
+							Location1.location = Location1.location + 5;
+							Location1.able = true;
 						}
 						else
 						{
@@ -112,7 +112,7 @@ void Game::Choices()
 							cout << "You took 30 damage!" << endl;							
 							cout << "You head back to the swamp enterance before you end up passing out." << endl;
 							Player1.AddHealth(-30);
-							location = location + 5;
+							Location1.location = Location1.location + 5;
 							direction = "NORTH";
 							system("pause");
 							system("CLS");
@@ -121,18 +121,18 @@ void Game::Choices()
 				}
 				else if (direction == "WEST")
 				{
-					Area1.WalkWest();
+					Location1.WalkWest();
 				}
 				else if (direction == "EAST")
 				{
-					Area1.WalkEast();
+					Location1.WalkEast();
 				}
 				else
 				{
 					cout << "Please enter 'NORTH' 'SOUTH' 'EAST' or 'WEST'." << endl;
 					cin >> direction;
 				}
-			} while (able == false);
+			} while (Location1.able == false);
 			correct = true;
 			system("CLS");
 			Choices();
@@ -160,16 +160,20 @@ void Game::Choices()
 void Game::Play()
 {
 	//items
-	const int NUM_ITEMS = 5;
-	const string items[NUM_ITEMS] = { "Strange Key", "Antidote", "OathKeeper Sword", "Legandary Armour", "Health Potion" };
+	//const int NUM_ITEMS = 5;
+	//const string items[Inventory1.NUM_ITEMS] = { "Strange Key", "Antidote", "OathKeeper Sword", "Legandary Armour", "Health Potion" };
 
 	//inventory
-	const int INVENTORY_CAPACITY = 8;		//Can hold all items plus 3 Health Potions
-	const string* inventory[INVENTORY_CAPACITY];
+	//const int INVENTORY_CAPACITY = 8;		//Can hold all items plus 3 Health Potions
+	//const string* inventory[Inventory1.INVENTORY_CAPACITY];
+
+	const string items[5] = { "Strange Key", "Antidote", "OathKeeper Sword", "Legandary Armour", "Health Potion" };
+	const string* inventory[8];
 
 	Intro();
-	Inventory1.Add(&items[0], inventory, INVENTORY_CAPACITY);		//Give player 'strange key'
-	Inventory1.Add(&items[4], inventory, INVENTORY_CAPACITY);		//Give player 'health potion'
+	//Inventory1.Add(&items[0], inventory, INVENTORY_CAPACITY);		//Give player 'strange key'
+	Inventory1.Add(&items[0], inventory, 8);
+	//Inventory1.Add(&items[4], inventory, INVENTORY_CAPACITY);		//Give player 'health potion'
 	Choices();
 
 	do
@@ -177,7 +181,7 @@ void Game::Play()
 		if (game == true)
 		{
 			cout << "INVENTORY" << endl << endl;
-			Inventory1.Display(inventory, INVENTORY_CAPACITY);
+			Inventory1.Display(inventory, 8);
 			system("pause");
 			system("CLS");
 			Choices();

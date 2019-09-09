@@ -17,7 +17,6 @@ public:
 	string playerName;
 	string option;
 	string direction;
-	bool able = false;
 	bool correct = false;
 	bool game = true;
 	bool resistance = false;

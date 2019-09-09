@@ -11,7 +11,6 @@ private:
 
 public:
 	float health;
-	int location;
 	Player();
 	void Health();
 	void Name(string playerName);

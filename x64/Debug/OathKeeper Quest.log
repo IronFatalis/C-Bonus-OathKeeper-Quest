@@ -1,1 +1,3 @@
-﻿  OathKeeper Quest.vcxproj -> C:\Users\User\Documents\GitHub\RE_CPlusPlus\OathKeeper Quest\x64\Debug\OathKeeper Quest.exe
+﻿  Inventory.cpp
+C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Inventory.cpp(53,1): error C2511:  'bool Inventory::Contains(const std::string *const ,const std::string *const [],int)': overloaded member function not found in 'Inventory'
+C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Inventory.h(7): message :  see declaration of 'Inventory'

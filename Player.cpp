@@ -7,7 +7,6 @@ using namespace std;
 Player::Player()
 {
 	health = 100;
-	location = 12;
 }
 
 void Player::Health()
