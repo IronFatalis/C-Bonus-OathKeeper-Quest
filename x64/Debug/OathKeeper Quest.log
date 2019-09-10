@@ -1,3 +1,5 @@
-﻿  Inventory.cpp
-C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Inventory.cpp(53,1): error C2511:  'bool Inventory::Contains(const std::string *const ,const std::string *const [],int)': overloaded member function not found in 'Inventory'
-C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Inventory.h(7): message :  see declaration of 'Inventory'
+﻿  Game.cpp
+  Player.cpp
+  Generating Code...
+C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Game.cpp(106,41): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+  OathKeeper Quest.vcxproj -> C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\x64\Debug\OathKeeper Quest.exe

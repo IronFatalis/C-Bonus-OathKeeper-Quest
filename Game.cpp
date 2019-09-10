@@ -11,6 +11,7 @@ Inventory Inventory1= Inventory();
 Location Location1 = Location();
 
 
+
 void Game::Intro()
 {
 	cout << "\tOathkeeper Quest" << endl << endl;
@@ -19,15 +20,30 @@ void Game::Intro()
 
 	cout << "\tThrone Room" << endl << endl;
 
-	cout << "<-----INTRO TEXT HERE---->" << endl;
-	cout << "King: What was your name again knight?" << endl;
+	cout << "King: Welcome to my Throne Room knight." << endl;
+	cout << "What was your name again?" << endl << endl;
+	cout << "ENTER NAME: ";
 	cin >> playerName;
 	system("CLS");
 	cout << "\tThrone Room" << endl << endl;
-	cout << "King: Awe yes, now I remember. ";
+	cout << "King: Oh yes, now I remember. ";
 	Player1.Name(playerName);
-	cout << " is a splended name I shall not forget it." << endl;
-	cout << "Here is a key to the shrine to the EAST. I suggest you visit it before you go on your way with your quest." << endl << endl;
+	cout << " is a splended name I shall not forget it." << endl << endl;
+	system("pause");
+	system("CLS");
+	cout << "\tThrone Room" << endl << endl;
+	cout << "I have a quest for you to undertake, should you succeed, " << endl;
+	cout << "I shall grant you any one thing from my kingdom that is within my power." << endl << endl;
+	system("pause");
+	system("CLS");
+	cout << "\tThrone Room" << endl << endl;
+	cout << "What is this task you might ask? Well it's to slay the " << endl;
+	cout << "dragon plaguing our kingdom of course!" << endl << endl;
+	system("pause");
+	system("CLS");
+	cout << "\tThrone Room" << endl << endl;
+	cout << "Here is a key to the shrine to the EAST. I suggest you " << endl;
+	cout << "visit it before you go on your way with your quest." << endl << endl;
 	system("pause");
 	system("CLS");
 	cout << "\tThrone Room" << endl << endl;
@@ -41,10 +57,10 @@ void Game::Intro()
 	system("pause");
 	system("CLS");
 	cout << "\tThrone Room" << endl << endl;
-	cout << "You head out to the Castle Town to start your adventure." << endl;
+	cout << "You head out to the enterance of Castle Town to start your adventure." << endl << endl;
 	system("pause");
 	system("CLS");
-	Location1.location = 12;
+	Location1.location = 17;
 }
 
 void Game::Menu()
@@ -94,10 +110,14 @@ void Game::Choices()
 				if (direction == "NORTH")
 				{
 					Location1.WalkNorth();
+					system("pause");
+					system("CLS");
 				}
 				else if (direction == "SOUTH")
 				{
 					Location1.WalkSouth();
+					system("pause");
+					system("CLS");
 					if (Location1.location == 16)
 					{
 						if (resistance == true)
@@ -122,10 +142,14 @@ void Game::Choices()
 				else if (direction == "WEST")
 				{
 					Location1.WalkWest();
+					system("pause");
+					system("CLS");
 				}
 				else if (direction == "EAST")
 				{
 					Location1.WalkEast();
+					system("pause");
+					system("CLS");
 				}
 				else
 				{
@@ -159,20 +183,9 @@ void Game::Choices()
 
 void Game::Play()
 {
-	//items
-	//const int NUM_ITEMS = 5;
-	//const string items[Inventory1.NUM_ITEMS] = { "Strange Key", "Antidote", "OathKeeper Sword", "Legandary Armour", "Health Potion" };
-
-	//inventory
-	//const int INVENTORY_CAPACITY = 8;		//Can hold all items plus 3 Health Potions
-	//const string* inventory[Inventory1.INVENTORY_CAPACITY];
-
-	const string items[5] = { "Strange Key", "Antidote", "OathKeeper Sword", "Legandary Armour", "Health Potion" };
-	const string* inventory[8];
-
 	Intro();
 	//Inventory1.Add(&items[0], inventory, INVENTORY_CAPACITY);		//Give player 'strange key'
-	Inventory1.Add(&items[0], inventory, 8);
+	//Inventory1.Add(&items[0], inventory, 8);
 	//Inventory1.Add(&items[4], inventory, INVENTORY_CAPACITY);		//Give player 'health potion'
 	Choices();
 
@@ -181,7 +194,8 @@ void Game::Play()
 		if (game == true)
 		{
 			cout << "INVENTORY" << endl << endl;
-			Inventory1.Display(inventory, 8);
+			Inventory1.inventory();
+			//Inventory1.Add(&items[0], inventory, INVENTORY_CAPACITY);
 			system("pause");
 			system("CLS");
 			Choices();

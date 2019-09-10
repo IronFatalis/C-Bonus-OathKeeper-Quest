@@ -147,76 +147,23 @@ void Inventory::Remove(const string* const pItem, const string* container[], int
 
 int Inventory::inventory()
 {
-	cout << "\tWelcome to Inventory!" << endl;
-
 	//items
 	const int NUM_ITEMS = 5;
-	const string items[NUM_ITEMS] = { "sword","axe","shield","goold","potion" };
+	const string items[NUM_ITEMS] = { "Strange Key", "Antidote", "OathKeeper Sword", "Legandary Armour", "Health Potion" };
 
 	//inventory
-	const int INVENTORY_CAPACITY = 3;
+	const int INVENTORY_CAPACITY = 8;
 	const string* inventory[INVENTORY_CAPACITY];
 	Initialize(inventory, INVENTORY_CAPACITY);
 
 	int choice;				//menu choice
 	int itemNumber;			//number of item to add or remove
 
-	do
-	{
-		cout << endl << "Inventory" << endl;
-		cout << "--------------" << endl << endl;
-		cout << "0 - Quit" << endl;
-		cout << "1 - Display items in the inventory";
-		cout << endl;
-		cout << "2 - Add an item to the inventory";
-		cout << endl;
-		cout << "3 - Remove an item from the inventory";
-		cout << endl;
-		cout << endl << "Choice: ";
-		cin >> choice;
-		cout << endl;
-
-		switch (choice)
-		{
-		case 0:
-			cout << "Good-bye." << endl;
-			break;
-		case 1:
-			cout << "Inventory:" << endl;
-			Display(inventory, INVENTORY_CAPACITY);
-			break;
-		case 2:
-			for (int i = 0; i < NUM_ITEMS; ++i)
-			{
-				cout << i << " - " << items[i] << endl;
-			}
-			do
-			{
-				cout << "Enter the number of the item to add: ";
-				cin >> itemNumber;
-			} while (itemNumber < 0 || itemNumber >= NUM_ITEMS);
-			//pass address of element items[itemNumber]
-			Add(&items[itemNumber], inventory, INVENTORY_CAPACITY);
-			break;
-		case 3:
-			for (int i = 0; i < NUM_ITEMS; ++i)
-			{
-				cout << i << " - " << items[i] << endl;
-			}
-
-			do
-			{
-				cout << "Enter the number of the item to remove: ";
-				cin >> itemNumber;
-			} while (itemNumber < 0 || itemNumber >= NUM_ITEMS);
-
-			//pass address of element items[itemNumber]
-			Remove(&items[itemNumber], inventory, INVENTORY_CAPACITY);
-			break;
-		default:
-			cout << "Sorry, " << choice;
-			cout << " isn't a valid choice." << endl;
-		}
-	} while (choice != 0);
-	return 0;
+	cout << endl << "Inventory" << endl;
+	cout << "--------------" << endl << endl;
+	Add(&items[0], inventory, INVENTORY_CAPACITY);
+	Display(inventory, INVENTORY_CAPACITY);
+	//Remove(&items[itemNumber], inventory, INVENTORY_CAPACITY);
+	return INVENTORY_CAPACITY;
+			
 }

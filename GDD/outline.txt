@@ -14,7 +14,7 @@
 
 
 
-0 - forest (sword location)
+0 - sword shrine (sword location)
 1 - forest 
 2 - steep uphill
 3 - rocky hill area

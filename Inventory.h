@@ -17,5 +17,6 @@ public:
 	void Add(const string* const pItem, const string* container[], int capacity);
 	void Remove(const string* const pItem, const string* container[], int capacity);
 	int inventory();
+	
 };
 
