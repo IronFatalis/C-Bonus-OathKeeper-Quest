@@ -1,4 +1,5 @@
 #include "Location.h"
+#include "Inventory.h"
 #include "Game.h"
 #include <iostream>
 #include <string>
@@ -203,57 +204,70 @@ void Location::WalkNorth()
 	if (location == 0)
 	{
 		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
+		system("pause");
 	}
 	else if (location == 1)
 	{
 		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
+		system("pause");
 	}
 	else if (location == 2)
 	{
 		cout << "Now it no time for a swim, maybe after my adventure is finished." << endl;
+		system("pause");
 	}
 	else if (location == 3)
 	{
 		cout << "The cliff is to steep, one wrong move and I'd be a gonner." << endl;
+		system("pause");
 	}
 	else if (location == 4)
 	{
 		cout << "I'm way to high up, maybe if I had some sort of rope I could make my " << endl;
 		cout << "way down." << endl;
+		system("pause");
 	}
 	else if (location == 7)
 	{
 		cout << "Even if I could go through the wall somehow, the guards would have my head." << endl;
+		system("pause");
 	}
 	else if (location == 8)
 	{
 		cout << "I could maybe scale this wall if I had the proper gear." << endl;
+		system("pause");
 	}
 	else if (location == 9)
 	{
 		cout << "There's no possible way I could even try going over there." << endl;
+		system("pause");
 	}
 	else if (location == 10)
 	{
 		cout << "I have no way to cross the river from here, maybe I should head back " << endl;
 		cout << "to the bridge?" << endl;
+		system("pause");
 	}
 	else if (location == 14)
 	{
 		cout << "I think the only way I'd make it up that wall is if I could fly." << endl;
+		system("pause");
 	}
 	else if (location == 20)
 	{
 		cout << "The walls here don't look the sturdiest, but I still wouldn't want to " << endl;
 		cout << "be impailed by them." << endl;
+		system("pause");
 	}
 	else if (location == 23)
 	{
 		cout << "There seems to be a damp wall here." << endl;
+		system("pause");
 	}
 	else if (location == 24)
 	{
 		cout << "I should either finish the dragon or leave before it wakes." << endl;
+		system("pause");
 	}
 	else
 	{
@@ -268,59 +282,72 @@ void Location::WalkSouth()
 	{
 		cout << "I'm pretty sure if I tried to break into the Castle Town from here " << endl;
 		cout << "I'd be hung." << endl;
+		system("pause");
 	}
 	else if (location == 3)
 	{
 		cout << "Let's not go this way, one wrong move and I'd be a gonner." << endl;
+		system("pause");
 	}
 	else if (location == 4)
 	{
 		cout << "I'd rather not fall to my death." << endl;
+		system("pause");
 	}
 	else if (location == 5)
 	{
 		cout << "I think I can see the river this way. Maybe I should head to the " << endl;
 		cout << "bridge instead?" << endl;
+		system("pause");
 	}
 	else if (location == 9)
 	{
 		cout << "There is no possible way I could even attempt to go that way." << endl;
+		system("pause");
 	}
 	else if (location == 15)
 	{
 		cout << "Even if I made it through all the bramble, there's no way I'd be " << endl;
 		cout << "able to go over that wall." << endl;
+		system("pause");
 	}
 	else if (location == 18)
 	{
 		cout << "Maybe I should go back to the cave enterance instead of making a new one?" << endl;
+		system("pause");
 	}
 	else if (location == 19)
 	{
 		cout << "I'd be washed away by the tide if I tried to continue." << endl;
+		system("pause");
 	}
 	else if (location == 20)
 	{
 		cout << "I'd rather not get impailed by the giant spikes of wood, maybe I " << endl;
 		cout << "should just leave?" << endl;
+		system("pause");
 	}
 	else if (location == 21)
 	{
 		cout << "There's no way I'd make it across this whole swamp without some " << endl;
 		cout << "sort of boat." << endl;
+		system("pause");
 	}
 	else if (location == 22)
 	{
 		cout << "This wall looks pretty sturdy, maybe a kick will... 'kicks wall'... nope." << endl;
+		system("pause");
 	}
 	else if (location == 23)
 	{
 		cout << "Ouch, I think I just walked into a wall, it was slimey too!" << endl;
+		system("pause");
 	}
 	else if (location == 24)
 	{
 		cout << "Maybe I shouldn't stick around here if I'm not going to finish off " << endl;
 		cout << "this dragon." << endl;
+		system("pause");
 	}
 	else
 	{
@@ -334,46 +361,56 @@ void Location::WalkWest()
 	if (location == 0)
 	{
 		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
+		system("pause");
 	}
 	else if (location == 5)
 	{
 		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
+		system("pause");
 	}
 	else if (location == 7)
 	{
 		cout << "I don't think the guards would act to kindly if I tried to enter the " << endl;
 		cout << "King's bedroom." << endl;
+		system("pause");
 	}
 	else if (location == 8)
 	{
 		cout << "No matter how many times I try, I still can't walk through walls." << endl;
+		system("pause");
 	}
 	else if (location == 10)
 	{
 		cout << "I have no way to cross this river, maybe I can find something?" << endl;
+		system("pause");
 	}
 	else if (location == 12)
 	{
 		cout << "If this shop wasn't closed I could be finished with my quest right now." << endl;
+		system("pause");
 	}
 	else if (location == 13)
 	{
 		cout << "Maybe if I punch the wall I can make a new enterance... Nope but now " << endl;
 		cout << "my hand hurts." << endl;
+		system("pause");
 	}
 	else if (location == 15)
 	{
 		cout << "This swamp looks way to dangerous to cross without a boat. I'm not " << endl;
 		cout << "going and you can't make me." << endl;
+		system("pause");
 	}
 	else if (location == 20)
 	{
 		cout << "Pretty sure that huge goblin will eat me if I try to pass him." << endl;
+		system("pause");
 	}
 	else if (location == 22)
 	{
 		cout << "There's something weird growing on this wall, maybe I should eat it? " << endl;
 		cout << "Bad choice..." << endl;
+		system("pause");
 	}
 	else
 	{
@@ -387,48 +424,58 @@ void Location::WalkEast()
 	if (location == 4)
 	{
 		cout << "Maybe if I had wings I could go up there." << endl;
+		system("pause");
 	}
 	else if (location == 6)
 	{
 		cout << "Another stone wall to Castle Town eh, maybe I can walk through this " << endl;
 		cout << "one... Nope." << endl;
+		system("pause");
 	}
 	else if (location == 7)
 	{
 		cout << "I know the banquet hall is this way, but I don't think the King would " << endl;
 		cout << "like me feasting before I'm finished my quest." << endl;
+		system("pause");
 	}
 	else if (location == 9)
 	{
 		cout << "There is no possible way I could get over there, even if there was " << endl;
 		cout << "somewhere to go when I did." << endl;
+		system("pause");
 	}
 	else if (location == 11)
 	{
 		cout << "This wall is so big. I wonder why they have problems with monsters?" << endl;
+		system("pause");
 	}
 	else if (location == 12)
 	{
 		cout << "Mamma told me never to talk to strangers." << endl;
+		system("pause");
 	}
 	else if (location == 14)
 	{
 		cout << "Maybe if I'd focused on my STR stat I could have swam over to that " << endl;
 		cout << "island... oh well." << endl;
+		system("pause");
 	}
 	else if (location == 19)
 	{
 		cout << "If only I had a cannon..." << endl;
+		system("pause");
 	}
 	else if (location == 21)
 	{
 		cout << "If I could climb this wall I could skip this whole swampy area... " << endl;
 		cout << "to bad it's impossible." << endl;
+		system("pause");
 	}
 	else if (location == 24)
 	{
 		cout << "Maybe I could just cuddle up to the dragon and we could be friends? " << endl;
 		cout << "Or it'll eat me... either way." << endl;
+		system("pause");
 	}
 	else
 	{

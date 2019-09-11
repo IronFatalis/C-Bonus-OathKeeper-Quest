@@ -20,4 +20,5 @@ public:
 	bool correct = false;
 	bool game = true;
 	bool resistance = false;
+	string usePotion;
 };

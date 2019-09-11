@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Inventory.h"
 #include <iostream>
 #include <string>
 
@@ -18,11 +19,22 @@ void Player::Location(int location)
 {
 	if (location == 0)
 	{
-		cout << "\tOathKeeper Shrine" << endl << endl;
-		cout << "You come to a beautiful clearing in the forest with light shimmering down from the treetops " << endl;
-		cout << "In the middle of the clearing you can see a pedestal with a bright glowing light coming from it." << endl;
-		cout << "You move over and touch the light to find the Legendary OathKeeper Sword in your hand!" << endl;
-		cout << "'You obtained the OathKeeper Sword'" << endl;
+		if (HaveSword == true)
+		{
+			cout << "\tOathKeeper Shrine" << endl << endl;
+			cout << "You come to a beautiful clearing in the forest with light shimmering down from the treetops " << endl;
+			cout << "In the middle of the clearing you can see a pedestal with a dim glowing light coming from it." << endl;
+			cout << "You move over and touch the light..." << endl;
+			cout << "Nothing happens." << endl;
+		}
+		else
+		{
+			cout << "\tOathKeeper Shrine" << endl << endl;
+			cout << "You come to a beautiful clearing in the forest with light shimmering down from the treetops " << endl;
+			cout << "In the middle of the clearing you can see a pedestal with a bright glowing light coming from it." << endl;
+			cout << "You move over and touch the light to find the Legendary OathKeeper Sword in your hand!" << endl;
+			cout << "'You obtained the OathKeeper Sword'" << endl;
+		}
 	}
 	else if (location == 1)
 	{
@@ -47,11 +59,21 @@ void Player::Location(int location)
 	}
 	else if (location == 4)
 	{
-		cout << "\tSmall Mountain Town" << endl << endl;
-		cout << "You come to a small mountain town with only a few villagers. There's kids running around playing" << endl;
-		cout << "and some adults sitting and talking. It seems like a very peaceful little village. You notice a" << endl;
-		cout << "stand with a bunch of potions on it and the adult behind it calls you over and hands you an antidote." << endl;
-		cout << "'You obtained an Antidote'" << endl;
+		if (HaveAnti == true)
+		{
+			cout << "\tSmall Mountain Town" << endl << endl;
+			cout << "You come to a small mountain town with only a few villagers. There's kids running around playing" << endl;
+			cout << "and some adults sitting and talking. It seems like a very peaceful little village. This might be" << endl;
+			cout << "a nice place to go retire after finishing this quest." << endl << endl;
+		}
+		else
+		{
+			cout << "\tSmall Mountain Town" << endl << endl;
+			cout << "You come to a small mountain town with only a few villagers. There's kids running around playing" << endl;
+			cout << "and some adults sitting and talking. It seems like a very peaceful little village. You notice a" << endl;
+			cout << "stand with a bunch of potions on it and the adult behind it calls you over and hands you an antidote." << endl;
+			cout << "'You obtained an Antidote'" << endl;
+		}
 	}
 	else if (location == 5)
 	{
@@ -146,6 +168,9 @@ void Player::Location(int location)
 	else if (location == 17)
 	{
 		cout << "\tCastle Bridge" << endl << endl;
+		cout << "You see a huge portcullis with a lowered drawbridge infront of it. The gate is what seperates" << endl;
+		cout << "the Castle City from the huge grassy field just outside of it. There's some water running across" << endl;
+		cout << "the front of the town's outter wall and a few small flower patches in various places." << endl << endl;
 	}
 	else if (location == 18)
 	{
@@ -157,29 +182,58 @@ void Player::Location(int location)
 	else if (location == 19)
 	{
 		cout << "\tBeach" << endl << endl;
+		cout << "You come to a small beach on the side of the lake. It seems deserted and you can guess that the" << endl;
+		cout << "dragon has something to do with it because of the giant claw marks on the cliffside to the 'SOUTH'" << endl;
+		cout << "of you. Out in the middle of the lake there is a small island, to far to be able to tell if anything " << endl;
+		cout << "inhabits it though." << endl;
 	}
 	else if (location == 20)
 	{
-		cout << "\tGoblin Fortress" << endl << endl;
+		if (HaveArmour == false)
+		{
+			cout << "\tGoblin Fortress" << endl << endl;
+			cout << "You see an inclosed fortress filled with dozens of tiny goblins, all seemingly covering in fear of you. At the" << endl;
+			cout << "back of you fortress you see a giant goblin with 2 others decked out in full armour about your size. There's an" << endl;
+			cout << "empty set of armour beside the giant goblin that he points to and grunts. The the goblin points to you and out " << endl;
+			cout << "the door towards the cave wall. You hesitantly grab the armour from the giant goblin. 'You obtained a set of armour'" << endl;
+		}
+		else
+		{
+			cout << "\tGoblin Fortress" << endl << endl;
+			cout << "You return to the Goblin Fortress to see the giant goblin from before staring at you growling." << endl;
+			cout << "He takes a swing at you with his club but misses. All the other goblins are hiding and seem scared." << endl;
+			cout << "You should probably leave before the giant goblin decides to take another swing." << endl << endl;
+		}
 	}
 	else if (location == 21)
 	{
 		cout << "\tPoisonous Marsh" << endl << endl;
+		cout << "You entered the purple water, the antidote you took seems to be warding off the poison from within." << endl;
+		cout << "Though you are not taking damage, the water is still gross to walk through. It's sticky and has" << endl;
+		cout << "rotting corpses of animals in it, some looking fairly fresh with spears sticking out of them. The" << endl;
+		cout << "water is about chest high but does not seem to be getting any deeper unless you're heading 'SOUTH'." << endl;
 	}
 	else if (location == 22)
 	{
 		cout << "\tCave Enterance" << endl << endl;
+		cout << "You come to a wet, dark cave. There are scratch marks all around the enterance and it looks like" << endl;
+		cout << "they continue inside. You can't see very far into the cave because of how dark it is, but there is" << endl;
+		cout << "a single torch mounted on the wall by the enterance. You're guessing that this is the location of" << endl;
+		cout << "the dragon you were sent to defeat." << endl;
 	}
 	else if (location == 23)
 	{
 		cout << "\tDark Cave" << endl << endl;
+		cout << "You move deeper in the cave, to where it's almost pitch black now. You can hear dripping coming " << endl;
+		cout << "from the walls and a low rumbling off in the distance. The only way you can tell where you're " << endl;
+		cout << "going is by clinging to the walls as you walk." << endl << endl;
 	}
 	else if (location == 24)
 	{
-		cout << "\tDragon's Nest" << endl << endl;
-		cout << "You enter the Dragon's Nest, where you see the dragon sleeping beside a fire. It seems " << endl;
-		cout << "like a small area in the back of this cave where you wouldn't have space for a full combate " << endl;
-		cout << "with the dragon. This could be your best chance, to strike while it's sleeping." << endl << endl;
+			cout << "\tDragon's Nest" << endl << endl;
+			cout << "You enter the Dragon's Nest, where you see the dragon sleeping beside a fire. It seems " << endl;
+			cout << "like a small area in the back of this cave where you wouldn't have space for a full combate " << endl;
+			cout << "with the dragon. This could be your best chance, to strike while it's sleeping." << endl << endl;
 	}
 	else
 	{

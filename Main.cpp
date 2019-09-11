@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 {
+	system("mode 125");
 	Game PlayGame = Game();
 	PlayGame.Play();
 	return 0;
