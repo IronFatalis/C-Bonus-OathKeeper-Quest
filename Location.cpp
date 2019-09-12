@@ -227,6 +227,24 @@ void Location::WalkNorth()
 		cout << "way down." << endl;
 		system("pause");
 	}
+	else if (location == 5)
+	{
+		if (notLost == 2)
+		{
+			notLost++;
+		}
+		if (notLost < 3)
+		{
+			cout << "This forest is so foggy I can barely see, I can't tell if I'm going the right way" << endl;
+			cout << "or not." << endl;
+			system("pause");
+		}
+		else
+		{
+			location = location - 5;
+			able = true;
+		}
+	}
 	else if (location == 7)
 	{
 		cout << "Even if I could go through the wall somehow, the guards would have my head." << endl;
@@ -296,9 +314,26 @@ void Location::WalkSouth()
 	}
 	else if (location == 5)
 	{
-		cout << "I think I can see the river this way. Maybe I should head to the " << endl;
-		cout << "bridge instead?" << endl;
-		system("pause");
+		if (notLost < 3)
+		{
+			cout << "This forest is so foggy I can barely see, I can't tell if I'm going the right way" << endl;
+			cout << "or not." << endl;
+			if (notLost == 0)
+			{
+				notLost++;
+			}
+			else if (notLost != 3)
+			{
+				notLost = 0;
+			}
+			system("pause");
+		}
+		else
+		{
+			cout << "I think I can see the river this way. Maybe I should head to the " << endl;
+			cout << "bridge instead?" << endl;
+			system("pause");
+		}
 	}
 	else if (location == 9)
 	{
@@ -363,10 +398,32 @@ void Location::WalkWest()
 		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
 		system("pause");
 	}
+	else if (location == 1 && notLost != 3)
+	{
+		cout << "The fog is so thick, I can't even see infront of me." << endl;
+		system("pause");
+	}
 	else if (location == 5)
 	{
-		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
-		system("pause");
+		if (notLost < 3)
+		{
+			cout << "This forest is so foggy I can barely see, I can't tell if I'm going the right way" << endl;
+			cout << "or not." << endl;
+			if (notLost == 1)
+			{
+				notLost++;
+			}
+			else if (notLost != 3)
+			{
+				notLost = 0;
+			}
+			system("pause");
+		}
+		else
+		{
+			cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
+			system("pause");
+		}
 	}
 	else if (location == 7)
 	{
@@ -425,6 +482,12 @@ void Location::WalkEast()
 	{
 		cout << "Maybe if I had wings I could go up there." << endl;
 		system("pause");
+	}
+	else if (location == 5 && notLost != 3)
+	{
+		notLost = 0;
+		location = location + 1;
+		able = true;
 	}
 	else if (location == 6)
 	{

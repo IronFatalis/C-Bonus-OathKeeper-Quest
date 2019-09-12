@@ -123,7 +123,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Hints.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Inventory.cpp" />
@@ -131,7 +130,6 @@
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Hints.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Inventory.h" />

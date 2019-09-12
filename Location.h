@@ -17,4 +17,5 @@ public:
 	void WalkWest();
 	int location;
 	bool able = false;
+	int notLost = 0;
 };

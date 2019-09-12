@@ -12,7 +12,12 @@ Location Location1 = Location();
 
 void Game::Intro()
 {
-	cout << "\tOathkeeper Quest" << endl << endl;
+	cout << "________          __  .__     ____  __.                                  ________                          __   " << endl;
+	cout << "\\_____  \\ _____ _/  |_|  |__ |    |/ _|____   ____ ______   ___________  \\_____  \\  __ __   ____   _______/  |_ " << endl;
+	cout << " /   |   \\\\__  \\\\   __\\  |  \\|      <_/ __ \\_/ __ \\\\____ \\_/ __ \\_  __ \\  /  / \\  \\|  |  \\_/ __ \\ /  ___/\\   __\\" << endl;
+	cout << "/    |    \\/ __ \\|  | |   Y  \\    |  \\  ___/\\  ___/|  |_> >  ___/|  | \\/ /   \\_/.  \\  |  /\\  ___/ \\___ \\  |  |  " << endl;
+	cout << "\\_______  (____  /__| |___|  /____|__ \\___  >\\___  >   __/ \\___  >__|    \\_____\\ \\_/____/  \\___  >____  > |__|  " << endl;
+	cout << "        \\/     \\/          \\/        \\/   \\/     \\/|__|        \\/               \\__>           \\/     \\/        " << endl << endl;
 	system("pause");
 	system("CLS");
 
@@ -26,7 +31,7 @@ void Game::Intro()
 	cout << "\tThrone Room" << endl << endl;
 	cout << "King: Oh yes, now I remember. ";
 	Player1.Name(playerName);
-	cout << " is a splended name I shall not forget it." << endl << endl;
+	cout << " is a splendid name I shall not forget it." << endl << endl;
 	system("pause");
 	system("CLS");
 	cout << "\tThrone Room" << endl << endl;
@@ -64,7 +69,24 @@ void Game::Intro()
 
 void Hints()
 {
-	// add switch here
+	if (Inventory1.Antidote == false)
+	{
+		cout << "There is an item that can ward off poison in the highest peaks."<<endl;
+	}
+	else if (Inventory1.Antidote == true && Inventory1.PlateArmour == false)
+	{
+		cout << "You've recieved the cure, now it's time to venture forth." << endl;
+	}
+	else if (Inventory1.PlateArmour == true && Inventory1.OathKeeperSword == false)
+	{
+		cout << "The woods may drive you mad, but not if you follow the 'SWaN'" << endl;
+	}
+	else if (Inventory1.OathKeeperSword == true)
+	{
+		cout << "The time has come to finish your mission, in the dark cave the dragon remains." << endl;
+	}
+	system("pause");
+	system("CLS");
 }
 
 void Game::Menu()
@@ -103,7 +125,6 @@ void Game::Choices()
 			correct = true;
 			system("pause");
 			system("CLS");
-			Choices();
 		}
 		else if (option == "2")
 		{
@@ -137,7 +158,7 @@ void Game::Choices()
 				}
 				else
 				{
-					cout << "Please enter 'NORTH' 'SOUTH' 'EAST' or 'WEST'." << endl;
+					cout << "Please enter 'NORTH' 'SOUTH' 'EAST' 'WEST' or anything else to pick a new option." << endl;
 					cin >> direction;
 				}
 				if (Location1.location == 0 && Inventory1.OathKeeperSword == true)
@@ -190,10 +211,6 @@ void Game::Choices()
 			} while (Location1.able == false);
 			correct = true;
 			system("CLS");
-			if (game == true)
-			{
-				Choices();
-			}
 		}
 		else if (option == "3")
 		{
@@ -243,6 +260,7 @@ void Game::Choices()
 		{
 			system("CLS");
 			Menu();
+			correct = false;
 			cout << "Please enter a correct option." << endl;
 		}
 	} while (!correct);
