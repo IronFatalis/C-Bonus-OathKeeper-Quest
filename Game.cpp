@@ -75,11 +75,11 @@ void Hints()
 	}
 	else if (Inventory1.Antidote == true && Inventory1.PlateArmour == false)
 	{
-		cout << "You've recieved the cure, now it's time to venture forth." << endl;
+		cout << "You've recieved the cure, now it's time to venture forth though the poison." << endl;
 	}
 	else if (Inventory1.PlateArmour == true && Inventory1.OathKeeperSword == false)
 	{
-		cout << "The woods may drive you mad, but not if you follow the 'SWaN'" << endl;
+		cout << "The 'lost woods' may drive you mad, but not if you follow the 'SWaN'" << endl;
 	}
 	else if (Inventory1.OathKeeperSword == true)
 	{
@@ -101,7 +101,7 @@ void Game::Menu()
 
 	cout << "What would you like to do?" << endl << endl;
 	cout << "1. Look around" << endl;
-	cout << "2. Move to a new loaction" << endl;
+	cout << "2. Move to a new location" << endl;
 	cout << "3. Look at equipment" << endl;
 	cout << "4. Exit game" << endl;
 	if (Location1.location == 9)
@@ -280,7 +280,7 @@ void Game::Play()
 		{
 			cout << "\tDragon's Nest" << endl << endl;
 			cout << "You walk over to the dragon sleeping on the ground. Slowly unsheething your sword as you" << endl;
-			cout << "approuch it. Now standing next to it's head you raise your sword for a quick kill as you" << endl;
+			cout << "approach it. Now standing next to it's head you raise your sword for a quick kill as you" << endl;
 			cout << "see it's eye open. The dragon lets out a massive roar as it knocks you back. You quickly" << endl;
 			cout << "get to your feet and thrust your sword swiftly through the bottom of it's head. The dragon" << endl;
 			cout << "falls to the floor, lifeless. You have finally completed your quest and Castle Town is safe" << endl;

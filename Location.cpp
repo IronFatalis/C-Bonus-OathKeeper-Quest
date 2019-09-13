@@ -190,8 +190,9 @@ void Location::LookAround()
 	}
 	else if (location == 24)
 	{
-		cout << "A fire on the ground with the dragon sleeping next to it. Now's your best chance " << endl;
-		cout << "to slay the beast!" << endl << endl;
+		cout << "A fire on the ground with the dragon sleeping next to it. Now would be your best chance " << endl;
+		cout << "to slay the beast if you had a sword!" << endl << endl;
+		cout << "To the 'WEST' you can see a verry dim light coming from the enterance." << endl << endl;
 	}
 	else
 	{
@@ -274,7 +275,7 @@ void Location::WalkNorth()
 	else if (location == 20)
 	{
 		cout << "The walls here don't look the sturdiest, but I still wouldn't want to " << endl;
-		cout << "be impailed by them." << endl;
+		cout << "be impaled by them." << endl;
 		system("pause");
 	}
 	else if (location == 23)
@@ -299,7 +300,7 @@ void Location::WalkSouth()
 	if (location == 2)
 	{
 		cout << "I'm pretty sure if I tried to break into the Castle Town from here " << endl;
-		cout << "I'd be hung." << endl;
+		cout << "I'd be hung by the King." << endl;
 		system("pause");
 	}
 	else if (location == 3)
@@ -531,7 +532,7 @@ void Location::WalkEast()
 	else if (location == 21)
 	{
 		cout << "If I could climb this wall I could skip this whole swampy area... " << endl;
-		cout << "to bad it's impossible." << endl;
+		cout << "to bad that's impossible." << endl;
 		system("pause");
 	}
 	else if (location == 24)
