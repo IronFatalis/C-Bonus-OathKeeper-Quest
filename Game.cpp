@@ -4,13 +4,34 @@
 #include "Location.h"
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 Player Player1 = Player();
 Inventory Inventory1 = Inventory();
 Location Location1 = Location();
 
-void Game::Intro()
+void Game::SlowText(string text)
+{
+	x = 0;										//resetting x for multiple uses
+	while (text[x] != '\0')						//while the text isn't at the end of the word
+	{
+		if (text[x] != ' ' && text[x] != '\n')	//skip noise if it's a space or endl
+			Beep(850, 50);						//make talking noise for each letter
+		cout << text[x];						//outputs the next character in the string
+		if (GetAsyncKeyState(VK_RETURN) & 0x8000)
+		{
+			Sleep(0);
+		}
+		else
+		{
+			Sleep(50);								//pause for 35 milsec
+		}
+		x++;									//increases x
+	};
+}
+
+void Game::Intro()	//title ascii art
 {
 	cout << "________          __  .__     ____  __.                                  ________                          __   " << endl;
 	cout << "\\_____  \\ _____ _/  |_|  |__ |    |/ _|____   ____ ______   ___________  \\_____  \\  __ __   ____   _______/  |_ " << endl;
@@ -21,45 +42,52 @@ void Game::Intro()
 	system("pause");
 	system("CLS");
 
-	cout << "\tThrone Room" << endl << endl;
-
-	cout << "King: Welcome to my Throne Room knight." << endl;
-	cout << "What was your name again?" << endl << endl;
+	cout << "\tThrone Room\n\n" << "King: ";
+	SlowText(king1);
+	cout << endl << endl;
 	cout << "ENTER NAME: ";
 	cin >> playerName;
 	system("CLS");
-	cout << "\tThrone Room" << endl << endl;
-	cout << "King: Oh yes, now I remember. ";
-	Player1.Name(playerName);
-	cout << " is a splendid name I shall not forget it." << endl << endl;
+
+	cout << "\tThrone Room\n\nKing: ";
+	SlowText(king2);
+	SlowText(playerName);
+	SlowText(king3);
+	cout << endl << endl;
 	system("pause");
 	system("CLS");
-	cout << "\tThrone Room" << endl << endl;
-	cout << "I have a quest for you to undertake, should you succeed, " << endl;
-	cout << "I shall grant you any one thing from my kingdom that is within my power." << endl << endl;
+
+	cout << "\tThrone Room\n\nKing: ";
+	SlowText(king4);
+	cout << endl << endl;
 	system("pause");
 	system("CLS");
-	cout << "\tThrone Room" << endl << endl;
-	cout << "What is this task you might ask? Well it's to slay the " << endl;
-	cout << "dragon plaguing our kingdom of course!" << endl << endl;
+
+	cout << "\tThrone Room\n\nKing: ";
+	SlowText(king5);
+	cout << endl << endl;
 	system("pause");
 	system("CLS");
-	cout << "\tThrone Room" << endl << endl;
-	cout << "Here are some health potions and a key to the shrine to the EAST. I suggest you " << endl;
-	cout << "visit it before you go on your way with your quest." << endl << endl;
+
+	cout << "\tThrone Room\n\nKing: ";
+	SlowText(king6);
+	cout << endl << endl;
 	system("pause");
 	system("CLS");
+
 	cout << "\tThrone Room" << endl << endl;
 	cout << "'You recieved a Mysterious Key'" << endl;
 	cout << "'You recieved Health Potions X 2'" << endl << endl;
 	system("pause");
 	system("CLS");
-	cout << "\tThrone Room" << endl << endl;
-	cout << "King: Good Luck ";
-	Player1.Name(playerName);
+
+	cout << "\tThrone Room\n\nKing: ";
+	SlowText(king7);
+	SlowText(playerName);
 	cout << "!" << endl << endl;
 	system("pause");
 	system("CLS");
+
 	cout << "\tThrone Room" << endl << endl;
 	cout << "You head out to the enterance of Castle Town to start your adventure." << endl << endl;
 	system("pause");
@@ -289,3 +317,5 @@ void Game::Play()
 		}
 	} while (game == true);
 }
+
+

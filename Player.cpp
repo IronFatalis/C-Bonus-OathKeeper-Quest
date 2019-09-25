@@ -7,19 +7,19 @@ using namespace std;
 
 Player::Player()
 {
-	health = 100;
+	health = 100;		//setting health for player
 }
 
 void Player::Health()
 {
-	cout << health;
+	cout << health;		//outputs the current health of player
 }
 
 void Player::Location(int location)
 {
-	if (location == 0)
+	if (location == 0)		//checks location of player and outputs decription of current area.
 	{
-		if (HaveSword == true)
+		if (HaveSword == true)	//checks if player already has sword
 		{
 			cout << "\tOathKeeper Shrine" << endl << endl;
 			cout << "You come to a beautiful clearing in the forest with light shimmering down from the treetops " << endl;
@@ -27,7 +27,7 @@ void Player::Location(int location)
 			cout << "You move over and touch the light..." << endl;
 			cout << "Nothing happens." << endl;
 		}
-		else
+		else               //If player does not have sword, run a different description
 		{
 			cout << "\tOathKeeper Shrine" << endl << endl;
 			cout << "You come to a beautiful clearing in the forest with light shimmering down from the treetops " << endl;
@@ -59,14 +59,14 @@ void Player::Location(int location)
 	}
 	else if (location == 4)
 	{
-		if (HaveAnti == true)
+		if (HaveAnti == true)	//checks if player has antidote, if so outputs this description
 		{
 			cout << "\tSmall Mountain Town" << endl << endl;
 			cout << "You come to a small mountain town with only a few villagers. There's kids running around playing" << endl;
 			cout << "and some adults sitting and talking. It seems like a very peaceful little village. This might be" << endl;
 			cout << "a nice place to go retire after finishing this quest." << endl << endl;
 		}
-		else
+		else                   //if player does not have antidote, outputs this
 		{
 			cout << "\tSmall Mountain Town" << endl << endl;
 			cout << "You come to a small mountain town with only a few villagers. There's kids running around playing" << endl;
@@ -189,7 +189,7 @@ void Player::Location(int location)
 	}
 	else if (location == 20)
 	{
-		if (HaveArmour == false)
+		if (HaveArmour == false)	//checks if player has armour, if so outputs this
 		{
 			cout << "\tGoblin Fortress" << endl << endl;
 			cout << "You see an inclosed fortress filled with dozens of tiny goblins, all seemingly covering in fear of you. At the" << endl;
@@ -197,7 +197,7 @@ void Player::Location(int location)
 			cout << "empty set of armour beside the giant goblin that he points to and grunts. The the goblin points to you and out " << endl;
 			cout << "the door towards the cave wall. You hesitantly grab the armour from the giant goblin. 'You obtained a set of armour'" << endl;
 		}
-		else
+		else                      //if player does not have armour outputs this
 		{
 			cout << "\tGoblin Fortress" << endl << endl;
 			cout << "You return to the Goblin Fortress to see the giant goblin from before staring at you growling." << endl;
@@ -235,7 +235,7 @@ void Player::Location(int location)
 			cout << "like a small area in the back of this cave where you wouldn't have space for a full combate " << endl;
 			cout << "with the dragon. This could be your best chance, to strike while it's sleeping." << endl << endl;
 	}
-	else
+	else       //if player somehow leaves gamespace it'll output this line
 	{
 		cout << "\tYou've left the quest area!" << endl;
 	}
@@ -243,10 +243,10 @@ void Player::Location(int location)
 
 void Player::Name(string playerName)
 {
-	cout << playerName;
+	cout << playerName;	//outputs players inputted name
 }
 
 void Player::AddHealth(float Points)
 {
-	health += Points;
+	health += Points;	//can add or subtract "Points" value from health
 }

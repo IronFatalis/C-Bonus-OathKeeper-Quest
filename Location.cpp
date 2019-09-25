@@ -8,8 +8,8 @@ using namespace std;
 
 void Location::LookAround()
 {
-	cout << "You look around you and see..." << endl << endl;
-	if (location == 0)
+	cout << "You look around you and see..." << endl << endl;	//outputs this line everytime LookAround is called
+	if (location == 0)											//checks location the outputs texts depending on where player is located
 	{
 		cout << "To the 'NORTH' and 'WEST' you see a dark, foggy forest." << endl;
 		cout << "To the 'SOUTH' it seems like the path you travlled from but you're not sure." << endl;
@@ -196,13 +196,13 @@ void Location::LookAround()
 	}
 	else
 	{
-		cout << "You see darkness all around you." << endl << endl;
+		cout << "You see darkness all around you." << endl << endl;	//will output if player uses lookaround when outside of game area
 	}
 }
 
 void Location::WalkNorth()
 {
-	if (location == 0)
+	if (location == 0)	//checks location of player, then outputs correct data if player is trying to walk North
 	{
 		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
 		system("pause");
@@ -230,20 +230,21 @@ void Location::WalkNorth()
 	}
 	else if (location == 5)
 	{
-		if (notLost == 2)
+		if (notLost == 2)	//checks if on correct step for lost woods "lock"
 		{
-			notLost++;
+			notLost++;		//add to counter for lost woods "lock" 
 		}
-		if (notLost < 3)
+		if (notLost < 3)	//if lost woods "lock" is not broken, does not move to next area
 		{
 			cout << "This forest is so foggy I can barely see, I can't tell if I'm going the right way" << endl;
 			cout << "or not." << endl;
+			notLost = 0;	//resets lost woods "lock"
 			system("pause");
 		}
-		else
+		else               //if the lost woods "lock" is broken
 		{
-			location = location - 5;
-			able = true;
+			location = location - 5;	//move to next area
+			able = true;				//passes check for if player is able to move
 		}
 	}
 	else if (location == 7)
@@ -288,16 +289,16 @@ void Location::WalkNorth()
 		cout << "I should either finish the dragon or leave before it wakes." << endl;
 		system("pause");
 	}
-	else
+	else                            //anything in this means the player is able to walk this direction
 	{
-		location = location - 5;
-		able = true;
+		location = location - 5;	//moves player North 1 space
+		able = true;				//passes check for if player is able to move
 	}
 }
 
 void Location::WalkSouth()
 {
-	if (location == 2)
+	if (location == 2)	//checks location of player, then outputs correct data if player is trying to walk North
 	{
 		cout << "I'm pretty sure if I tried to break into the Castle Town from here " << endl;
 		cout << "I'd be hung by the King." << endl;
@@ -315,21 +316,21 @@ void Location::WalkSouth()
 	}
 	else if (location == 5)
 	{
-		if (notLost < 3)
-		{
+		if (notLost < 3)	//checks to see if lost woods "lock" is broken
+		{	//if "lock" is not broken...
 			cout << "This forest is so foggy I can barely see, I can't tell if I'm going the right way" << endl;
 			cout << "or not." << endl;
-			if (notLost == 0)
+			if (notLost == 0)		//checks if on correct step for lost woods "lock"
 			{
-				notLost++;
+				notLost++;			//add to counter for lost woods "lock" if direction is correct
 			}
-			else if (notLost != 3)
+			else if (notLost != 3)  //if lost woods "lock" is not broken, does not move to next area
 			{
-				notLost = 0;
+				notLost = 0;		//Reset lost woods "lock"
 			}
 			system("pause");
 		}
-		else
+		else       //if "lock" is broken...
 		{
 			cout << "I think I can see the river this way. Maybe I should head to the " << endl;
 			cout << "bridge instead?" << endl;
@@ -385,16 +386,16 @@ void Location::WalkSouth()
 		cout << "this dragon." << endl;
 		system("pause");
 	}
-	else
+	else     //everything here tells the player they are able to move South
 	{
-		location = location + 5;
-		able = true;
+		location = location + 5;	//moves player South one space
+		able = true;				//passes check for if player is able to move
 	}
 }
 
 void Location::WalkWest()
 {
-	if (location == 0)
+	if (location == 0)	//checks location of player, then outputs correct data if player is trying to walk North
 	{
 		cout << "I probably shouldn't head any further in or I might get lost forever." << endl;
 		system("pause");
@@ -406,17 +407,17 @@ void Location::WalkWest()
 	}
 	else if (location == 5)
 	{
-		if (notLost < 3)
-		{
+		if (notLost < 3)		//checks if lost woods "lock" is broken
+		{		//if "lock" is not broken
 			cout << "This forest is so foggy I can barely see, I can't tell if I'm going the right way" << endl;
 			cout << "or not." << endl;
-			if (notLost == 1)
+			if (notLost == 1)	//checks if it's the correct step for "lock" progression
 			{
-				notLost++;
+				notLost++;		//adds to "lock" counter
 			}
-			else if (notLost != 3)
+			else if (notLost != 3)	//if "lock" is not on correct step or finished
 			{
-				notLost = 0;
+				notLost = 0;	//resets "lock" counter
 			}
 			system("pause");
 		}
@@ -470,25 +471,25 @@ void Location::WalkWest()
 		cout << "Bad choice..." << endl;
 		system("pause");
 	}
-	else
+	else                            //anything in this means the player is able to walk this direction
 	{
-		location = location - 1;
-		able = true;
+		location = location - 1;	//moves player West one space
+		able = true;				//passes check for if player is able to move
 	}
 }
 
-void Location::WalkEast()
+void Location::WalkEast()	//checks location of player, then outputs correct data if player is trying to walk North
 {
 	if (location == 4)
 	{
 		cout << "Maybe if I had wings I could go up there." << endl;
 		system("pause");
 	}
-	else if (location == 5 && notLost != 3)
-	{
-		notLost = 0;
-		location = location + 1;
-		able = true;
+	else if (location == 5 && notLost != 3)	//Checks if lost woods "lock" is broken
+	{								//if "lock" is not broken
+		notLost = 0;				//resets "lock"
+		location = location + 1;	//moves player outside of lost woods
+		able = true;				//passes check for if player is able to move
 	}
 	else if (location == 6)
 	{
@@ -541,9 +542,9 @@ void Location::WalkEast()
 		cout << "Or it'll eat me... either way." << endl;
 		system("pause");
 	}
-	else
+	else                            //anything in this means the player is able to walk this direction
 	{
-		location = location + 1;
-		able = true;
+		location = location + 1;	//moves player East one space
+		able = true;				//passes check for if player is able to move
 	}
 }
