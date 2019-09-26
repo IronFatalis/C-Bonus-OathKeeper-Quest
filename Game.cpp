@@ -19,13 +19,13 @@ void Game::SlowText(string text)
 		if (text[x] != ' ' && text[x] != '\n')	//skip noise if it's a space or endl
 			Beep(850, 50);						//make talking noise for each letter
 		cout << text[x];						//outputs the next character in the string
-		if (GetAsyncKeyState(VK_RETURN) & 0x8000)
+		if (GetAsyncKeyState(VK_RETURN) & 0x8000)	//if player holds enter key
 		{
-			Sleep(0);
+			Sleep(0);								//text will speed up
 		}
 		else
 		{
-			Sleep(50);								//pause for 35 milsec
+			Sleep(50);								//pause for 50 milsec
 		}
 		x++;									//increases x
 	};
@@ -42,35 +42,36 @@ void Game::Intro()	//title ascii art
 	system("pause");
 	system("CLS");
 
+	//intro text of game
 	cout << "\tThrone Room\n\n" << "King: ";
-	SlowText(king1);
+	SlowText(king1);		//SlowText function for king's text
 	cout << endl << endl;
 	cout << "ENTER NAME: ";
-	cin >> playerName;
+	cin >> playerName;		//Enter player's name
 	system("CLS");
 
 	cout << "\tThrone Room\n\nKing: ";
-	SlowText(king2);
-	SlowText(playerName);
-	SlowText(king3);
+	SlowText(king2);		//SlowText function for king's text
+	SlowText(playerName);	//SlowText function for playerName
+	SlowText(king3);		//SlowText function for king's text
 	cout << endl << endl;
 	system("pause");
 	system("CLS");
 
 	cout << "\tThrone Room\n\nKing: ";
-	SlowText(king4);
+	SlowText(king4);		//SlowText function for king's text
 	cout << endl << endl;
 	system("pause");
 	system("CLS");
 
 	cout << "\tThrone Room\n\nKing: ";
-	SlowText(king5);
+	SlowText(king5);		//SlowText function for king's text
 	cout << endl << endl;
 	system("pause");
 	system("CLS");
 
 	cout << "\tThrone Room\n\nKing: ";
-	SlowText(king6);
+	SlowText(king6);		//SlowText function for king's text
 	cout << endl << endl;
 	system("pause");
 	system("CLS");
@@ -82,8 +83,8 @@ void Game::Intro()	//title ascii art
 	system("CLS");
 
 	cout << "\tThrone Room\n\nKing: ";
-	SlowText(king7);
-	SlowText(playerName);
+	SlowText(king7);		//SlowText function for king's text
+	SlowText(playerName);	//SlowText function outputting playerName
 	cout << "!" << endl << endl;
 	system("pause");
 	system("CLS");
@@ -92,24 +93,24 @@ void Game::Intro()	//title ascii art
 	cout << "You head out to the enterance of Castle Town to start your adventure." << endl << endl;
 	system("pause");
 	system("CLS");
-	Location1.location = 17;
+	Location1.location = 17;	//set starting location for game
 }
 
 void Hints()
-{
-	if (Inventory1.Antidote == false)
+{	//checks if flags are passed
+	if (Inventory1.Antidote == false)	//if player hasn't found antidote yet
 	{
 		cout << "There is an item that can ward off poison in the highest peaks."<<endl;
 	}
-	else if (Inventory1.Antidote == true && Inventory1.PlateArmour == false)
+	else if (Inventory1.Antidote == true && Inventory1.PlateArmour == false)	//if player hasn't found armour yet
 	{
 		cout << "You've recieved the cure, now it's time to venture forth though the poison." << endl;
 	}
-	else if (Inventory1.PlateArmour == true && Inventory1.OathKeeperSword == false)
+	else if (Inventory1.PlateArmour == true && Inventory1.OathKeeperSword == false)		//if player hasn't found sword yet
 	{
 		cout << "The 'lost woods' may drive you mad, but not if you follow the 'SWaN'" << endl;
 	}
-	else if (Inventory1.OathKeeperSword == true)
+	else if (Inventory1.OathKeeperSword == true)	//if player has found sword
 	{
 		cout << "The time has come to finish your mission, in the dark cave the dragon remains." << endl;
 	}
@@ -120,11 +121,11 @@ void Hints()
 void Game::Menu()
 {
 
-	Player1.Location(Location1.location);
+	Player1.Location(Location1.location);	//run location function
 	cout << endl << endl;
-	Player1.Name(playerName);
+	Player1.Name(playerName);		//run playerName function
 	cout << "'s Health : ";
-	Player1.Health();
+	Player1.Health();			// run player's Health function
 	cout << endl << endl;
 
 	cout << "What would you like to do?" << endl << endl;
@@ -132,7 +133,7 @@ void Game::Menu()
 	cout << "2. Move to a new location" << endl;
 	cout << "3. Look at equipment" << endl;
 	cout << "4. Exit game" << endl;
-	if (Location1.location == 9)
+	if (Location1.location == 9)		//adds an extra option for hints if in area 9
 	{
 		cout << "5. Hint" << endl;
 	}
@@ -147,164 +148,164 @@ void Game::Choices()
 		cout << "Enter Choice: ";
 		cin >> option;
 		cout << endl;
-		if (option == "1")
+		if (option == "1")		//if player inputs "1"
 		{
-			Location1.LookAround();
-			correct = true;
+			Location1.LookAround();		//run lookAround function
+			correct = true;				//sets correct input has been met
 			system("pause");
 			system("CLS");
 		}
-		else if (option == "2")
-		{
+		else if (option == "2")		//if player inputs "2"
+		{		
 			cout << "Which direction would you like to head?" << endl;
-			cin >> direction;
+			cin >> direction;		//player inputs direction to walk
 			do
 			{
-				for (int i = 0, n = direction.size(); i < n; i++)
+				for (int i = 0, n = direction.size(); i < n; i++)		//Set input above to caps
 				{
 					direction[i] = toupper(direction[i]);
 				}
-				if (direction == "NORTH")
+				if (direction == "NORTH")		//if player inputs NORTH
 				{
-					Location1.WalkNorth();
+					Location1.WalkNorth();		//run WalkNorth funcation
 					system("CLS");
 				}
-				else if (direction == "SOUTH")
+				else if (direction == "SOUTH")	//if player inputs SOUTH
 				{
-					Location1.WalkSouth();
+					Location1.WalkSouth();		//run WalkSouth funcation
 					system("CLS");	
 				}
-				else if (direction == "WEST")
+				else if (direction == "WEST")	//if player inputs WEST
 				{
-					Location1.WalkWest();
+					Location1.WalkWest();		//run WalkWest funcation
 					system("CLS");
 				}
-				else if (direction == "EAST")
+				else if (direction == "EAST")	//if player inputs EAST
 				{
-					Location1.WalkEast();
+					Location1.WalkEast();		//run WalkEast funcation
 					system("CLS");
 				}
-				else
+				else                           //if NORTH, SOUTH, EAST, or WEST was not input
 				{
 					cout << "Please enter 'NORTH' 'SOUTH' 'EAST' 'WEST' or anything else to pick a new option." << endl;
-					cin >> direction;
+					cin >> direction;		//Ask for direction again or if anything else was entered, go back to option select
 				}
-				if (Location1.location == 0 && Inventory1.OathKeeperSword == true)
+				if (Location1.location == 0 && Inventory1.OathKeeperSword == true)		//checks if player already has sword
 				{
-					Player1.HaveSword = true;
+					Player1.HaveSword = true;		//player has sword now
 				}
-				else if (Location1.location == 0)
+				else if (Location1.location == 0)	//if player doesn't have sword but is in correct area
 				{
-					Inventory1.OathKeeperSword=true;
+					Inventory1.OathKeeperSword=true;	//adds sword to players inventory
 				}
-				else if (Location1.location == 4 && Inventory1.Antidote == true)
+				else if (Location1.location == 4 && Inventory1.Antidote == true)	//checks if player already has antidote
 				{
-					Player1.HaveAnti = true;
+					Player1.HaveAnti = true;		//player has antidote now
 				}
-				else if (Location1.location == 4)
+				else if (Location1.location == 4)	//if player doesn't have antidote but is in correct area
 				{
-					Inventory1.Antidote = true;
+					Inventory1.Antidote = true;			//adds antidote to players inventory
 				}
-				else if (Location1.location == 21 && Inventory1.Antidote == false)
+				else if (Location1.location == 21 && Inventory1.Antidote == false)	//if player doesn't have antidote and is in correct space
 				{
-					Location1.location = Location1.location -5;
-					Player1.AddHealth(-30);
+					Location1.location = Location1.location -5;		//move back to previous location
+					Player1.AddHealth(-30);			//player loses 30 health
 					cout << "The swamp to the 'SOUTH' begins to burn your skin as you attempt to walk through it." << endl;
 					cout << "'You took 30 damage'" << endl;
 					cout << "I think I should probably head back and think of a better way to make it through this." << endl;
 					system("pause");
-					if (Player1.health <= 0)
+					if (Player1.health <= 0)	//if player's health is 0 or less
 					{
 						system("CLS");
 						cout << "You have lost all your health!" << endl;
 						cout << "GAME OVER!" << endl << endl;
-						correct = true;
-						game = false;
+						correct = true;		//sets correct input has been met
+						game = false;		//end game
 					}
 				}
-				else if (Location1.location == 20 && Inventory1.PlateArmour == true)
+				else if (Location1.location == 20 && Inventory1.PlateArmour == true)	//checks if player already has armour
 				{
-					Player1.HaveArmour = true;
+					Player1.HaveArmour = true;		//player has armour now
 				}
-				else if (Location1.location == 20)
+				else if (Location1.location == 20)		//if player doesn't have armour but is in correct area
 				{
-					Inventory1.PlateArmour = true;
+					Inventory1.PlateArmour = true;		//adds armour to players inventory
 				}
-				else if (Location1.location == 24 && Inventory1.OathKeeperSword == true && Inventory1.PlateArmour == true)
+				else if (Location1.location == 24 && Inventory1.OathKeeperSword == true && Inventory1.PlateArmour == true)	//checks if player already has armour and sword
 				{
-					Player1.win = true;
-					correct = true;
-					game = false;
+					Player1.win = true;		//sets var for end of game
+					correct = true;			//sets correct input has been met
+					game = false;			//ends game
 				}
-			} while (Location1.able == false);
-			correct = true;
+			} while (Location1.able == false);	//continue loop until player picks direction they can walk
+			correct = true;		//sets correct input has been met
 			system("CLS");
 		}
-		else if (option == "3")
+		else if (option == "3")		//if player inputs "3"
 		{
-			correct = true;
-			Inventory1.DrawInventory();
+			correct = true;			//sets correct input has been met
+			Inventory1.DrawInventory();		//runs inventory function
 			cout << endl << endl;
-			if (Inventory1.HealthPotion > 0 && Player1.health < 100)
+			if (Inventory1.HealthPotion > 0 && Player1.health < 100)		//if player has health potion and health is less than 100
 			{
 				cout << "Would you like to use a potion?\nYES/NO" << endl;
 				cin >> usePotion;
-				for (int i = 0, n = usePotion.size(); i < n; i++)
+				for (int i = 0, n = usePotion.size(); i < n; i++)		//switches case to upper
 				{
 					usePotion[i] = toupper(usePotion[i]);
 				}
-				if (usePotion == "YES")
+				if (usePotion == "YES")			//if input is YES
 				{
-					if (Player1.health < 50)
+					if (Player1.health < 50)	//if players health is below 50
 					{
-						Inventory1.HealthPotion--;
-						Player1.AddHealth(+50);
+						Inventory1.HealthPotion--;	//decrease potion count by 1
+						Player1.AddHealth(+50);		//heal 50 damage
 						cout << "You feel refreshed and gained 50 health back." << endl;
 					}
-					else
+					else                            //if health is between 51-99
 					{
-						Inventory1.HealthPotion--;
-						Player1.health=100;
+						Inventory1.HealthPotion--;	//decrease potion count by 1
+						Player1.health=100;			//heal back to 100 health
 						cout << "You feel refreshed and gained 50 health back." << endl;
 					}
 				}
 			}
 			system("pause");
 			system("CLS");
-			Choices();
+			Choices();	//run Choices funcation
 		}
-		else if (option == "4")
+		else if (option == "4")		//if player inputs "4"
 		{
 			system("CLS");
 			cout << "Good bye!" << endl << endl;
-			correct = true;
-			game = false;
+			correct = true;		//sets correct input has been met
+			game = false;		//ends game
 		}
-		else if (option == "5" && Location1.location == 9)
+		else if (option == "5" && Location1.location == 9)		//if player inputs "5"
 		{
-			Hints();
+			Hints();		//runs hint funcation
 		}
 		else
 		{
 			system("CLS");
-			Menu();
-			correct = false;
+			Menu();		//runs menu function
+			correct = false;	//sets correct input has been met
 			cout << "Please enter a correct option." << endl;
 		}
-	} while (!correct);
+	} while (!correct); //loops until correct input has been met
 }
 
 void Game::Play()
 {
-	Intro();
-	Choices();
+	Intro();		//runs intro function
+	Choices();		//runs Choices funcation
 	do
 	{
-		if (game == true)
+		if (game == true)	//if the game is still running
 		{
-			Choices();
+			Choices();		//run Choices funcation
 		}
-		if (Player1.win == true)
+		if (Player1.win == true)	//if player wins
 		{
 			cout << "\tDragon's Nest" << endl << endl;
 			cout << "You walk over to the dragon sleeping on the ground. Slowly unsheething your sword as you" << endl;
@@ -315,7 +316,7 @@ void Game::Play()
 			cout << "once again" << endl << endl;
 			cout << "CONGRAGULATIONS ON COMPLETING THE GAME!" << endl << endl;
 		}
-	} while (game == true);
+	} while (game == true);	//run loop while game is still running
 }
 
 
