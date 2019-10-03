@@ -13,19 +13,28 @@ Location Location1 = Location();
 
 void Game::SlowText(string text)
 {
-	x = 0;										//resetting x for multiple uses
-	while (text[x] != '\0')						//while the text isn't at the end of the word
+	x = 0;												//resetting x for multiple uses
+	while (text[x] != '\0')								//while the text isn't at the end of the word
 	{
-		if (text[x] != ' ' && text[x] != '\n')	//skip noise if it's a space or endl
-			Beep(850, 50);						//make talking noise for each letter
-		cout << text[x];						//outputs the next character in the string
-		if (GetAsyncKeyState(VK_RETURN) & 0x8000)	//if player holds enter key
+		if (text[x] != ' ' && text[x] != '\n')			//skip noise if it's a space or endl
+			Beep(850, 50);								//make talking noise for each letter
+														//outputs the next character in the string
+		if (GetAsyncKeyState(VK_RETURN) & 0x8000)		//if player holds enter key
 		{
-			Sleep(0);								//text will speed up
+			system("CLS");								//fills in all text
+			cout << "\tThrone Room\n\n" << "King: ";
+			x = text.size() - 1;
+			cout << text;							
+		}
+		else if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+		{
+			Sleep(0);									//text will speed up
+			cout << text[x];
 		}
 		else
 		{
-			Sleep(50);								//pause for 50 milsec
+			Sleep(50);									//pause for 50 milsec between each letter
+			cout << text[x];
 		}
 		x++;									//increases x
 	};
@@ -39,6 +48,7 @@ void Game::Intro()	//title ascii art
 	cout << "/    |    \\/ __ \\|  | |   Y  \\    |  \\  ___/\\  ___/|  |_> >  ___/|  | \\/ /   \\_/.  \\  |  /\\  ___/ \\___ \\  |  |  " << endl;
 	cout << "\\_______  (____  /__| |___|  /____|__ \\___  >\\___  >   __/ \\___  >__|    \\_____\\ \\_/____/  \\___  >____  > |__|  " << endl;
 	cout << "        \\/     \\/          \\/        \\/   \\/     \\/|__|        \\/               \\__>           \\/     \\/        " << endl << endl;
+	cout << "\n\n Hold 'Enter' to skip intro\n Hold 'Spacebar to speed up text\n\n";
 	system("pause");
 	system("CLS");
 
@@ -187,8 +197,13 @@ void Game::Choices()
 				}
 				else                           //if NORTH, SOUTH, EAST, or WEST was not input
 				{
-					cout << "Please enter 'NORTH' 'SOUTH' 'EAST' 'WEST' or anything else to pick a new option." << endl;
+					cout << "Please enter 'NORTH' 'SOUTH' 'EAST' 'WEST'." << endl;
+					cin.clear();
 					cin >> direction;		//Ask for direction again or if anything else was entered, go back to option select
+					for (int i = 0, n = direction.size(); i < n; i++)		//Set input above to caps
+					{
+						direction[i] = toupper(direction[i]);
+					}
 				}
 				if (Location1.location == 0 && Inventory1.OathKeeperSword == true)		//checks if player already has sword
 				{
@@ -213,6 +228,13 @@ void Game::Choices()
 					cout << "The swamp to the 'SOUTH' begins to burn your skin as you attempt to walk through it." << endl;
 					cout << "'You took 30 damage'" << endl;
 					cout << "I think I should probably head back and think of a better way to make it through this." << endl;
+					system("color 0C");				//damage indicator effect
+					system("color 04");
+					system("color 0C");
+					system("color 04");
+					system("color 0C");
+					system("color 04");
+					system("color 07");
 					system("pause");
 					if (Player1.health <= 0)	//if player's health is 0 or less
 					{
@@ -239,6 +261,7 @@ void Game::Choices()
 				}
 			} while (Location1.able == false);	//continue loop until player picks direction they can walk
 			correct = true;		//sets correct input has been met
+			cin.clear();
 			system("CLS");
 		}
 		else if (option == "3")		//if player inputs "3"
@@ -303,6 +326,9 @@ void Game::Play()
 	{
 		if (game == true)	//if the game is still running
 		{
+			cin.clear();				//Resetting variables
+			correct = false;			
+			Location1.able = false;
 			Choices();		//run Choices funcation
 		}
 		if (Player1.win == true)	//if player wins

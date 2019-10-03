@@ -1,4 +1,6 @@
 ﻿  Game.cpp
-C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Game.cpp(163,41): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Game.cpp(252,41): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Game.cpp(26,23): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Game.cpp(174,41): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Game.cpp(203,42): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\Game.cpp(276,41): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
   OathKeeper Quest.vcxproj -> C:\Users\User\Documents\GitHub\C-Bonus-OathKeeper-Quest\x64\Debug\OathKeeper Quest.exe

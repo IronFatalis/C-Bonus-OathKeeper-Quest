@@ -8,7 +8,7 @@ class Location
 {
 
 private:
-
+	int notLost = 0;
 public:
 	void LookAround();
 	void WalkNorth();
@@ -17,5 +17,5 @@ public:
 	void WalkWest();
 	int location;
 	bool able = false;
-	int notLost = 0;
+
 };
